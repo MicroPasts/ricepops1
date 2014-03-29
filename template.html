@@ -404,8 +404,8 @@ pybossa.taskLoaded(function(task, deferred) {
     if ( !$.isEmptyObject(task) ) {
         var img = $('<img />');
         var div_map = $('<div/>');
-        div_map.css("height", "313px");
-        div_map.css("width", "450px");
+        div_map.css("height", "390px");
+        div_map.css("width", "600px");
         div_map.css("background", "url('http://subtlepatterns.com/patterns/old_map.png') repeat");
 
         var copyright = "&copy; <a href='" + task.info.link + "'>British Museum</a>";
@@ -726,13 +726,9 @@ $(document).ready(function() {
     var pos = s.position();                    
     $(window).scroll(function() {
         var windowpos = $(window).scrollTop();
-        if (windowpos >= pos.top) {
-            s.addClass("stick");
-        } else {
-            s.removeClass("stick"); 
-        }
+        
 if ( $(window).width() < 768) {
-	s.removeClass("affix");
+	s.removeClass("affix-bottom");
 }    
 
     });
