@@ -33,9 +33,9 @@
         position: fixed;
         bottom: 240px;
     }
-    .imgContainer {
-        height: 400px;
-        width: 100%;
+    #imgContainer {
+        height: 390px;
+        width: 600px;
     }
 </style>
 
@@ -240,7 +240,7 @@
             <button class="btn btn-lg btn-info btn-answer" value='Yes'>Submit the transcription</button>
 
     </div><!-- End of Question and Submission DIV (column) -->
-    <div id="photo-link" class="col-md-8"><!-- Start of Photo DIV (column) -->
+    <div id="photo-link" class="col-md-7 col-md-offset-1"><!-- Start of Photo DIV (column) -->
         <div style="margin-top:15px;">
             <div id="success" class="alert alert-success" style="display:none;">
                 <strong>Well done!</strong> You have successfully submitted your transcription. Here is another to try if you wish!
@@ -448,7 +448,7 @@ pybossa.taskLoaded(function(task, deferred) {
           view: new ol.View2D({
             projection: task.pixelProjection,
             center: ol.extent.getCenter(task.pixelProjection.getExtent()),
-            zoom: 0
+            zoom: 1.5
           })
         });
         div_map.css("display", "none");
@@ -462,9 +462,9 @@ pybossa.taskLoaded(function(task, deferred) {
             deferred.resolve(task);
         });
         img.attr('src', task.info.url_b);
-        img.attr('width', '400px');
-        img.attr('height', '278px');
-        //img.addClass('img-polaroid');
+        img.attr('width', '600px');
+        img.attr('height', '390px');
+        img.addClass('img-polaroid');
         img.css("cursor", "zoom-in");
         task.info.image = img;
 
