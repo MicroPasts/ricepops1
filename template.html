@@ -75,10 +75,10 @@
 
         <h1 id="start">Please transcribe this index card</h1> <!-- The question will be loaded here -->
         <span class="label label-info">Note</span> You can use your mouse wheel trackpad to zoom in/out the picture, as well as drag & drop to navigate in the document.
-        
-        <a class="btn btn-info btn-sm pull-right" href="../tutorial"><i class="glyphicon glyphicon-eye-open"></i> Tutorial</a> 
+
+        <a class="btn btn-info btn-sm pull-right" href="../tutorial"><i class="glyphicon glyphicon-eye-open"></i> Tutorial</a>
         <a class="btn btn-info btn-sm pull-right" href="http://community.micropasts.org/category/crowdsourcing-support"><i class="glyphicon glyphicon-book"></i> Community Help</a>
-        
+
 </div>
 
 <div class="row skeleton">
@@ -269,6 +269,27 @@
 
 </div><!-- End of Skeleton Row -->
 
+<a data-toggle="modal" href="modal.html" data-target="#myModal">Click me</a>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-remote="modal.html" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+  </div>
+  <div class="modal-body">
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+  </div>
+</div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 
@@ -414,7 +435,7 @@ pybossa.taskLoaded(function(task, deferred) {
         extent.extend(new OpenLayers.LonLat(-6.99745,49.96112).transform(new OpenLayers.Projection("EPSG:4326"),
     new OpenLayers.Projection('EPSG:900913')));
 
-		
+
         $("#imgContainer").append(div_map);
         div_map.attr("id", "img_" + task.id);
 
@@ -431,7 +452,7 @@ pybossa.taskLoaded(function(task, deferred) {
               source: new ol.source.ImageStatic({
                 attributions: [
                   new ol.Attribution({
-                    html: copyright 
+                    html: copyright
                   })
                 ],
                 url: task.info.url_b,
@@ -721,17 +742,32 @@ else {
 }
 $(document).ready(function() {
     var s = $("#imgContainer");
-    var pos = s.position();                    
+    var pos = s.position();
     $(window).scroll(function() {
         var windowpos = $(window).scrollTop();
-        
+
 if ( $(window).width() < 768) {
 	s.removeClass("affix-bottom");
 	s.removeClass("affix");
 	s.removeClass("affix-top");
-}    
+}
 
     });
 });
+$(function() {
 
+    // intiliaze the modal but don't show it yet
+    $("#myModal").modal('hide');
+
+    $('a[data-target="#myModal"]').click(function(event) {
+        event.preventDefault();
+        var myModal = $('#myModal').
+            modalBody = myModal.find('.modal-body');
+        // load content into modal
+        modalBody.load('/tutorial.html');
+        // display modal
+        myModal.modal('show');
+    });
+
+});
 </script>
