@@ -269,9 +269,9 @@
 
 </div><!-- End of Skeleton Row -->
 
-<a data-toggle="modal" href="../tutorial.html" data-target="#myModal">Click me</a>
+<a data-toggle="modal" href="../tutorial" data-target="#myModal">Click me</a>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-remote="../tutorial.html" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-remote="../tutorial" aria-labelledby="myModalLabel" aria-hidden="true">
    <div class="modal-dialog">
 <div class="modal-content">
   <div class="modal-header">
@@ -764,7 +764,7 @@ $(function() {
         var myModal = $('#myModal').
             modalBody = myModal.find('.modal-body');
         // load content into modal
-        modalBody.load('../tutorial.html');
+        modalBody.load('../tutorial');
         // display modal
         myModal.modal('show');
     });
