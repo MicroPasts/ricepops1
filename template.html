@@ -269,13 +269,6 @@
 
 </div><!-- End of Skeleton Row -->
 
-<a data-toggle="modal" class="btn btn-info" href="../tutorial" data-target="#myModal" id="tut">Click me !</a>
-
-<div id="modal" class="modal hide fade in" style="display:none;">
-   <div class="modal-header">header<a class="close" data-dismiss="modal">x</a></div>
-   <div class="modal-body"></div>
-   <div class="model-footer">footer</div>
- </div>
 
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -741,22 +734,5 @@ if ( $(window).width() < 768) {
 
     });
 });
-
-$(document).ready(function() {
-
-     $('#tut').click(function(){
-       $.ajax(
-       {
-          url:'../tutorial',
-          success: function(response){
-            //do what ever you want here to extract the part you want
-            $('#modal-content').html(adapted-response);
-            $('#modal').modal('show');
-          }
-       });
-     });
-   });
-
-
 
 </script>
