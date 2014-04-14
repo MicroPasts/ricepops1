@@ -725,7 +725,7 @@ pybossa.presentTask(function(task, deferred) {
            .val('')
            .removeAttr('checked')
            .removeAttr('selected');
-        //$('#imgContainer').html('').append(task.info.image);
+        $('#imgContainer').html(task.info.url_b).append(task.info.image);
         //$("#photo-link").attr("href", task.info.link);
         $("#searchingTip").hide();
         $("#question").html(task.info.question);
