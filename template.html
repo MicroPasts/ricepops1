@@ -259,7 +259,6 @@
         <div id="imgContainer" data-spy="affix" data-offset-top="1" data-offset-bottom="550">
            <!-- <img src="http://i.imgur.com/GeHxzb7.png" style="max-width=100%">-->
         </div>
-        <div id="imgBlowUp"></div>
     </div><!-- End of Photo DIV (columnt) -->
 
 </div><!-- End of Skeleton Row -->
@@ -727,8 +726,8 @@ pybossa.presentTask(function(task, deferred) {
            .removeAttr('checked')
            .removeAttr('selected');
         var imgLink = '';
-        imgLink += task.info.url_b;
-        $('#imgBlowUp').html(imgLink);
+        imgLink += '<a href="' + task.info.url_b + '>Image blowup</a>';
+        $('#photo-link').html(imgLink);
         //$("#photo-link").attr("href", task.info.link);
         $("#searchingTip").hide();
         $("#question").html(task.info.question);
