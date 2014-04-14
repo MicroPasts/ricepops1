@@ -728,15 +728,11 @@ pybossa.presentTask(function(task, deferred) {
            .val('')
            .removeAttr('checked')
            .removeAttr('selected');
-        var imgLink = '';
-        imgLink += '<a class="btn btn-default" href="' + task.info.url_b + '>Image blowup</a>';
-        $('#imgLink').html(imgLink);
-        //$("#photo-link").attr("href", task.info.link);
+      
+        $('#imgLink').html('<a class="btn btn-default" href="' + task.info.url_b + '>Image blowup</a>');
         $("#searchingTip").hide();
         $("#question").html(task.info.question);
         $('#task-id').html(task.id);
-        //$('#img_task_' + task.id).wheelzoom();
-        //$('#img_task_' + task.id).trigger('wheelzoom.reset');
         $("#map_" + task.id).show();
         $("#img_" + task.id).show();
 
