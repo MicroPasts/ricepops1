@@ -729,7 +729,7 @@ pybossa.presentTask(function(task, deferred) {
            .removeAttr('checked')
            .removeAttr('selected');
       
-        $('#imgLink').html('<a class="btn btn-default" href="' + task.info.url_b + '>Image blowup</a>');
+        $('#imgLink').html(task.info.url_b);
         $("#searchingTip").hide();
         $("#question").html(task.info.question);
         $('#task-id').html(task.id);
