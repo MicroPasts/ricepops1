@@ -69,8 +69,9 @@
         <span class="label label-info">Note</span> You can use your mouse wheel trackpad to zoom in/out the picture, as well as drag & drop to navigate in the document.
 
         <div class="btn-group pull-right">
-<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-eye-open"></i> Tutorial</button>
-<a class="btn btn-info btn-sm" href="http://community.micropasts.org/category/crowdsourcing-support"><i class="glyphicon glyphicon-book"></i> Community Help</a>
+		<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-eye-open"></i> Tutorial</button>
+		<a class="btn btn-info btn-sm" href="http://community.micropasts.org/category/crowdsourcing-support"><i class="glyphicon glyphicon-book"></i> Community Help</a>
+		<div id="imgLink"></div>
 </div>
 
 </div>
@@ -729,7 +730,7 @@ pybossa.presentTask(function(task, deferred) {
            .removeAttr('selected');
         var imgLink = '';
         imgLink += '<a class="btn btn-default" href="' + task.info.url_b + '>Image blowup</a>';
-        $('#taskImg').html(imgLink);
+        $('#imgLink').html(imgLink);
         //$("#photo-link").attr("href", task.info.link);
         $("#searchingTip").hide();
         $("#question").html(task.info.question);
