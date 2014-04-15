@@ -835,6 +835,8 @@ else {
     $("#oldbrowser").show();
 }
 $(window).off('.affix');
-$('#imgHolder').removeClass('affix affix-top affix-bottom');
+$("#my-element")
+    .removeClass("affix affix-top affix-bottom")
+    .removeData("bs.affix");
 
 </script>
