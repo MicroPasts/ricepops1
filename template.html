@@ -730,7 +730,16 @@ pybossa.presentTask(function(task, deferred) {
         $('#task-id').html(task.id);
         $("#map_" + task.id).show();
         $("#img_" + task.id).show();
+	var s = $("#imgContainer");
+    	var pos = s.position();
+    	$(window).scroll(function() {
+        var windowpos = $(window).scrollTop();
 
+	if ( $(window).width() < 768) {
+	s.removeClass("affix-bottom");
+	s.removeClass("affix");
+	s.removeClass("affix-top");
+	}
         // Clean
         $('select[name=dateDiscoveryYear]').html('').append($('<option/>').val('None').html('Year'));
         for (i = 1700; i < 2000; i++)
@@ -830,20 +839,6 @@ if(Modernizr.borderradius) {
 else {
     $(".skeleton").hide();
     $("#oldbrowser").show();
-}
-$(document).ready(function() {
-    var s = $("#imgContainer");
-    var pos = s.position();
-    $(window).scroll(function() {
-        var windowpos = $(window).scrollTop();
-
-if ( $(window).width() < 768) {
-	s.removeClass("affix-bottom");
-	s.removeClass("affix");
-	s.removeClass("affix-top");
-}
-
-    });
 });
 
 </script>
