@@ -74,7 +74,7 @@
 
         <div class="btn-group pull-right">
 		<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-eye-open"></i> Tutorial</button>
-		<a class="btn btn-info btn-sm" id="imgLink" href="http://community.micropasts.org/category/crowdsourcing-support"><i class="glyphicon glyphicon-book"></i> Community Help</a>
+		<a class="btn btn-info btn-sm" id="imgLink" target="_blank" data-toggle="tooltip" data-placement="top" title="Opens in a new window"  href="http://community.micropasts.org/category/crowdsourcing-support"><i class="glyphicon glyphicon-book"></i> Community Help</a>
 </div>
 
 </div>
@@ -735,6 +735,7 @@ pybossa.presentTask(function(task, deferred) {
         $('<a id="raw" href=\"' + task.info.url_b + '\" class=\"btn btn-sm btn-info fancybox\" ><i class=\"glyphicon glyphicon-picture\"></i> Raw image</a>').insertAfter('#imgLink');
         $('<a href=\"../newtask\" class=\"btn btn-sm btn-info\"><i class=\"glyphicon glyphicon-picture\"></i> Different card?</a>').insertAfter('#raw');
         $(".fancybox").fancybox();
+        $('#imgLink').tooltip();
         $("#searchingTip").hide();
         $("#question").html(task.info.question);
         $('#task-id').html(task.id);
