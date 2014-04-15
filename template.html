@@ -33,6 +33,11 @@
         height: 390px;
         width: 600px;
     }
+    @media (min-width: 768px) {
+    .affix {
+        position: fixed;
+    }
+}
 </style>
 
 <div id="survey" class="modal fade" data-backdrop="static">
@@ -831,20 +836,6 @@ else {
     $(".skeleton").hide();
     $("#oldbrowser").show();
 }
- var s = $("#imgContainer");
-    var pos = s.position();
-    $(window).scroll(function() {
-        var windowpos = $(window).scrollTop();
 
-if ( $(window).width() < 768) {
-	s.removeClass("affix-bottom");
-	s.removeClass("affix");
-	s.removeClass("affix-top");
-}
-
-    });
-$(document).ready(function() {
-   
-});
 
 </script>
