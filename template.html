@@ -477,7 +477,6 @@ function search(task, city, zoom) {
             $("#point").removeClass("disabled");
             $("#point").removeClass("active");
             task.objectLayer.removeAllFeatures();
-            task.cityLayer.removeAllFeatures();
             //$("#answerbtn").addClass("disabled");
             //$("#answerbtn").unbind('click',submitTask);
             //console.log("Map cleaned!");
@@ -627,11 +626,7 @@ pybossa.taskLoaded(function(task, deferred) {
             {type: google.maps.MapTypeId.TERRAIN}
         ));
 
-        // Icon for the City Marker
-        var styleMapCity = new OpenLayers.StyleMap({
-            pointRadius: 15,
-            externalGraphic: 'http://img225.imageshack.us/img225/5237/youarehere2.png'
-        });
+       
 
         // Icon for the Urban Park Marker
         var styleMapObject = new OpenLayers.StyleMap({
@@ -639,15 +634,9 @@ pybossa.taskLoaded(function(task, deferred) {
             externalGraphic: 'http://img225.imageshack.us/img225/5237/youarehere2.png'
         });
 
-        // Layer for placing the city marker
-        var cityLayer = new OpenLayers.Layer.Vector("City marker", {
-            styleMap: styleMapCity,
-        });
-        map.addLayer(cityLayer);
-        task.cityLayer = cityLayer;
-
+        
         // Layer for placing the urban park marker
-        var objectLayer = new OpenLayers.Layer.Vector("Urban park marker", {
+        var objectLayer = new OpenLayers.Layer.Vector("Find spot marker", {
             styleMap: styleMapObject,
         });
         map.addLayer(objectLayer);
