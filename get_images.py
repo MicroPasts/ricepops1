@@ -38,7 +38,7 @@ def get_flickr_photos(size="big"):
     # add the 'ids': '25053835@N03' to the values dict if you want to
     # specify a Flickr Person ID
     print('Contacting Flickr for photos')
-    url = "http://api.flickr.com/services/feeds/photos_public.gne"
+    url = "https://api.flickr.com/services/feeds/photos_public.gne"
     values = {'nojsoncallback': 1,
               'format': "json"}
 
@@ -68,7 +68,7 @@ def get_flickr_photos(size="big"):
 
 def get_flickr_set_photos(set_id):
     """Get public photos from a Flickr set_id and return a list."""
-    url = 'http://api.flickr.com/services/rest/'
+    url = 'https://api.flickr.com/services/rest/'
     page = 1
     payload = dict(
         method='flickr.photosets.getPhotos',
@@ -94,10 +94,10 @@ def get_flickr_set_photos(set_id):
         # in the set. By default Flickr returns 500 pictures per page
         while 'photoset' in data.keys():
             for photo in data['photoset']['photo']:
-                direct_link = "http://farm%s.staticflickr.com/%s/%s_%s" % (
+                direct_link = "https://farm%s.staticflickr.com/%s/%s_%s" % (
                     photo['farm'], photo['server'],
                     photo['id'], photo['secret'])
-                link = 'http://www.flickr.com/photos/%s/%s' % (
+                link = 'https://www.flickr.com/photos/%s/%s' % (
                     owner_name, photo['id'])
                 tmp = dict(url_m=direct_link + "_m.jpg",
                            url_b=direct_link + "_b.jpg",
