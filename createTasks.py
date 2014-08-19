@@ -71,13 +71,14 @@ def handle_arguments():
                       metavar="ADD-MORE-TASKS")
 
     # Modify the number of TaskRuns per Task
-    # (default 30)
+    # (default 2)
+    # Changed default to 2 on the 19th August
     parser.add_option("-n", "--number-answers",
                       type="int",
                       dest="n_answers",
                       help="Number of answers per task",
                       metavar="N-ANSWERS",
-                      default=30)
+                      default=2)
 
     parser.add_option("-a", "--application-config",
                       dest="app_config",
