@@ -468,7 +468,7 @@ function loadUserProgress() {
            $.cookie('survey', 'shown', { path: '/'});
         }
 
-    if ((data.done >= 25) && ($.cookie('survey25B16') === undefined)){
+    if ((data.done == 25) && ($.cookie('survey25B16') === undefined)){
            $("#survey25").modal('show');
            $.cookie('survey25B16', 'shown', { path: '/'});
         }
