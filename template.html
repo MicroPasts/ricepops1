@@ -286,8 +286,6 @@
         	<a id="down" rel="tooltip" data-toggle="tooltip" data-placement="top" title="Only works for compliant browsers" download="" href="" class="btn btn-sm btn-info" ><i class="glyphicon glyphicon-download"></i> Download</a>
 	</div>
         <div id="imgContainer" >
-        	
-           <!-- <img src="http://i.imgur.com/GeHxzb7.png" style="max-width=100%">-->
         </div>
         <div id="taskImg"></div>
     </div><!-- End of Photo DIV (columnt) -->
@@ -305,8 +303,8 @@
 		<div id="0" class="modal-body" style="display:none">
 
                 <p>
-                    This application is very simple, but does require you to use your own judgment in reading hand-written documents. When you participate,
-                    the platform will load a scanned index card from the British Museum's Bronze Age catalog
+                    This application is very simple, but does require you to use your own judgement in reading hand-written documents. When you participate,
+                    the platform will load a scanned index card from the British Museum's Bronze Age catalogue
                     (stored on the MicroPasts <a href="http://flickr.com">Flickr</a> stream).
                     Once the image has been loaded, you will be asked to transcribe the contents of each
                     card (if a card does not load, you can still click the "View on Flickr" button to see the contents). Most scanned images combine the written details from the one side of the
@@ -414,20 +412,20 @@
     var step = -1;
     function showStep(action) {
         $("#" + step).hide();
-        if (action == 'next') {
+        if (action === 'next') {
             step = step + 1;
         }
-        if (action == 'prev') {
+        if (action === 'prev') {
             step = step - 1;
         }
-        if (step == 0) {
+        if (step === 0) {
             $("#prevBtn").hide();
         }
         else {
             $("#prevBtn").show();
         }
 
-        if (step == 3 ) {
+        if (step === 3 ) {
             $("#nextBtn").hide();
             $("#startContrib").show();
         }
@@ -449,12 +447,12 @@ Modernizr.load({
 function loadUserProgress() {
     pybossa.userProgress('BAI-draw').done(function(data){
             console.log("Total answers done for user: " + data.done);
-	if ((data.done == 1) && ($.cookie('surveyBAI-draw') === undefined)){
+	if ((data.done === 1) && ($.cookie('surveyBAI-draw') === undefined)){
            $("#survey").modal('show');
            $.cookie('survey', 'shown', { path: '/'});
         }
 
-    if ((data.done == 25) && ($.cookie('survey25BAI-draw') === undefined)){
+    if ((data.done === 25) && ($.cookie('survey25BAI-draw') === undefined)){
            $("#survey25").modal('show');
            $.cookie('survey25BAI-draw', 'shown', { path: '/'});
         }
@@ -495,7 +493,7 @@ function search(task, city, zoom) {
         else {
             $("#searching").hide();
             alert("Please, add a location in the Site section to search in the map");
-            return
+            return;
         }
     }
 
@@ -532,7 +530,7 @@ function search(task, city, zoom) {
             $("#lon").text("-");
             $("#lat").text("-");
 
-            if (zoom !=4 ) {
+            if (zoom !==4 ) {
                 $("#searchingTip").show();
             }
 
@@ -551,12 +549,11 @@ function search(task, city, zoom) {
     });
 }
 
-
-
 pybossa.taskLoaded(function(task, deferred) {
     if ( !$.isEmptyObject(task) ) {
         var img = $('<img />');
         var div_map = $('<div/>');
+        
         div_map.css("height", "390px");
         div_map.css("width", "600px");
         div_map.css("background", "#000");
@@ -565,9 +562,10 @@ pybossa.taskLoaded(function(task, deferred) {
 
         var extent = new OpenLayers.Bounds();
         extent.extend(new OpenLayers.LonLat(1.758939,58.672231).transform(new OpenLayers.Projection("EPSG:4326"),
-    new OpenLayers.Projection('EPSG:900913')));
+        new OpenLayers.Projection('EPSG:900913')));
+        
         extent.extend(new OpenLayers.LonLat(-6.99745,49.96112).transform(new OpenLayers.Projection("EPSG:4326"),
-    new OpenLayers.Projection('EPSG:900913')));
+        new OpenLayers.Projection('EPSG:900913')));
 
 
         $("#imgContainer").append(div_map);
@@ -786,27 +784,12 @@ pybossa.presentTask(function(task, deferred) {
             $('select[name=dateDiscoveryDay]').append($('<option />').val(i).html(i));
         }
 
-        //var $input = $(".pickadate").pickadate({
-        //                 format: 'yyyy-mm-dd',
-        //                 selectYears: true,
-        //                 selectMonths: true,
-        //                 //min: new Date(1800,1,1),
-        //                 //max: new Date(2000,1,1),
-        //                 selectYears: 200,
-        //                 //formatSubmit: 'yyyy/mm/dd',
-        //                 });
-        // Use the picker object directly.
-        //var picker = $input.pickadate('picker')
-        //picker.set('select', [1900,1,1]);
-        //picker.clear();
-
-
         $('.btn-answer').off('click').on('click', function(evt) {
             evt.preventDefault();
             var answer = $(evt.target).attr("value");
-            if (typeof answer != 'undefined') {
+            if (typeof answer !== 'undefined') {
                 console.log(answer);
-                if (answer == 'search') {
+                if (answer === 'search') {
                     $("#searching").show();
                     search(task, $("#toSearch").val(), 15);
                 }
@@ -815,7 +798,7 @@ pybossa.presentTask(function(task, deferred) {
                     console.log(task.answer);
                     // Remove unwanted names
                     for (var key in task.answer) {
-                        if ((key == 'City marker') || (key == 'Urban park marker') || (key.indexOf('OpenLayers_') == 0)) {
+                        if ((key === 'City marker') || (key === 'Urban park marker') || (key.indexOf('OpenLayers_') === 0)) {
                             delete task.answer[key];
                         }
                     }
@@ -871,5 +854,4 @@ $(window).off('.affix');
 $("#imgHolder")
     .removeClass("affix affix-top affix-bottom")
     .removeData("bs.affix");
-
 </script>
