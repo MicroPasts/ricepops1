@@ -393,7 +393,7 @@ width:100%;
     <div class="modal-content">
 	<!-- Modal header --> 
 		<div class="modal-header">
-                <h3 class="lead">BM Bronze Age Index BAI-draw transcription tutorial</h3>
+                <h3 class="lead">Asian Rice and Population Statistics Tutorial</h3>
             </div>
 	<!-- stepped modal body -->
 		<div id="0" class="modal-body" style="display:none">
@@ -495,16 +495,16 @@ Modernizr.load({
 <!-- The main pybossa functions --> 
 <script>
 function loadUserProgress() {
-    pybossa.userProgress('BAI-draw').done(function(data){
+    pybossa.userProgress('ricepops1').done(function(data){
         console.log(data);
         console.log("Total answers done for user: " + data.done);
-        if ((data.done == 1) && ($.cookie('surveyBAI-draw') === undefined)){
+        if ((data.done == 1) && ($.cookie('surveyricepops1') === undefined)){
            $("#survey").modal('show');
            $.cookie('survey', 'shown', { path: '/'});
         }
-        if ((data.done == 25) && ($.cookie('survey25BAI-draw') === undefined)){
+        if ((data.done == 25) && ($.cookie('survey25ricepops1') === undefined)){
            $("#survey25").modal('show');
-           $.cookie('survey25BAI-draw', 'shown', { path: '/'});
+           $.cookie('survey25ricepops1', 'shown', { path: '/'});
         }
         var pct = Math.round((data.done*100)/data.total);
         $("#progress").css("width", pct.toString() +"%");
@@ -774,7 +774,7 @@ pybossa.presentTask(function(task, deferred) {
 });
 
 if(Modernizr.borderradius) {
-    pybossa.run('BAI-draw');
+    pybossa.run('ricepops1');
 }
 else {
     $(".skeleton").hide();
