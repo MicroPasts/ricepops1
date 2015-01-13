@@ -512,19 +512,19 @@ task.
 	pybossa.presentTask(function(task, deferred) {
 		if (!$.isEmptyObject(task)) {
 			loadUserProgress();
-			$(':input', '#transcription').not(':button, :submit, :reset, :hidden, :radio').val('').removeAttr('checked').removeAttr('selected');
-
-			$("a#raw").attr("href", task.info.url_b);
+						$("#step1").show();
+			$("#step2").hide();
+			$("#viewport_" + task.id).show();
+			$("#nColumns").val("");
+			renderPage(task);
+			$("a#raw").attr("href", task.info.url_o);
 			$("a#flickr").attr("href", task.info.link + '/sizes/o/');
 			$("a#down").attr("download", task.id);
 			$("a#down").attr("href", task.info.url_b);
 			$(".fancybox").fancybox();
 			$('#imgLink').tooltip();
-			$("[rel=tooltip]").tooltip();
-			$("#searchingTip").hide();
 			$("#question").html(task.info.question);
 			$('#task-id').html(task.id);
-			$("#map_" + task.id).show();
 			$("#img_" + task.id).show();
 
 			$(".btn-submit").off('click').on('click', function() {
