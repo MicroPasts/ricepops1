@@ -61,7 +61,7 @@
 				<button type="button" class="btn btn-default" data-dismiss="modal">
 					Skip
 				</button>
-				<a class="btn btn-large btn-success" href="https://docs.google.com/forms/d/1Foe1CCfd4K_ZmtX2W8MDsoSjjDi5zd5DLgG7yRVn2HQ/viewform?embedded=true">Of course! Take me to the survey!</a>
+				<a class="btn btn-large btn-success" href="https://docs.google.com/forms/d/1mOgWbg7WH41u1EnNHXN-_m8bTbqjZ_kHqhM-mUwkhG8/viewform?embedded=true">Of course! Take me to the survey!</a>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
@@ -91,7 +91,7 @@
 				<button type="button" class="btn btn-default" data-dismiss="modal">
 					Skip
 				</button>
-				<a class="btn btn-large btn-success" href="https://docs.google.com/forms/d/1WTVapZ2Qdq0AIRazG-onDrVYDtb9xAnid7LwLrR3Uqw/viewform?embedded=true">Of course! Take me to the survey!</a>
+				<a class="btn btn-large btn-success" href="https://docs.google.com/forms/d/1xXHd8TPkGIZWi_xs3HdJsZ3dsH2khC_j_QbrRyLrVsE/viewform?embedded=true">Of course! Take me to the survey!</a>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
@@ -180,8 +180,8 @@ task.
 	<!-- Photo div -->
 	<div id="imgHolder">
 		<div class="btn-group">
-			<a class="btn btn-info btn-sm" rel="tooltip" href="#" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-eye-open"></i> Tutorial</a>
-			<a class="btn btn-info btn-sm" id="imgLink" target="_blank" data-toggle="tooltip" data-placement="top" title="Opens in a new window"  href="http://community.micropasts.org/category/crowdsourcing-support"><i class="glyphicon glyphicon-book"></i> Community Help</a>
+			<a class="btn btn-info btn-sm" href="#" data-toggle="modal" title="Opens in a new window" data-target="#myModal"><i class="glyphicon glyphicon-eye-open"></i> Tutorial</a>
+			<a class="btn btn-info btn-sm" id="imgLink" target="_blank" data-toggle="tooltip" title="Opens in a new window" data-placement="top" title="Opens in a new window"  href="http://community.micropasts.org/category/crowdsourcing-support"><i class="glyphicon glyphicon-book"></i> Community Help</a>
 			<a id="flickr" rel="tooltip" target="_blank" data-toggle="tooltip" data-placement="top" title="Opens in a new window" href="" class="btn btn-sm btn-info"><i class="icon icon-flickr"></i> View on flickr</a>
 			<a id="down" rel="tooltip" data-toggle="tooltip" data-placement="top" title="Only works for compliant browsers" download="" href="" class="btn btn-sm btn-info" ><i class="glyphicon glyphicon-download"></i> Download</a>
 		</div>
@@ -318,7 +318,7 @@ task.
 			console.log("Total answers done for user: " + data.done);
 			if ((data.done == 1) && ($.cookie('surveyricepops1') === undefined)) {
 				$("#survey").modal('show');
-				$.cookie('survey', 'shown', {
+				$.cookie('surveyricepops1', 'shown', {
 					path : '/'
 				});
 			}
