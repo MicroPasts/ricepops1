@@ -27,17 +27,6 @@
 	#map_canvas img {
 		max-width: none;
 	}
-	.affix {
-		width: inherit;
-		height: 0px;
-	}
-
-	.affix-bottom {
-		top: auto !important;
-		position: fixed;
-		bottom: 240px;
-	}
-
 	#imgContainer {
 		height: 390px;
 		width: 600px;
@@ -161,18 +150,7 @@ task.
 <div class="row skeleton">
 	<h1 id="start"> Please transcribe the data table(s) you see in this image </h1>
 
-	<!-- Feedback items for the user -->
-	<p>
-		You are working now on task: <span id="task-id" class="label label-warning">#</span>
-	</p>
-	<p>
-		You have completed: <span id="done" class="label label-info"></span> tasks from <!-- Progress bar for the user -->
-		<span id="total" class="label label-inverse"></span>
-	</p>
-	<div class="progress progress-striped">
-		<div id="progress" rel="tooltip" title="#" class="progress-bar" role="progressbar" style="width: 0%;"></div>
-	</div>
-	<!-- End of feedback row -->
+
 
 	<div id="step1">
 		<h5>First, please create a blank table by typing in the
@@ -200,9 +178,9 @@ task.
 
 <!-- The column holding the open layers div -->
 
-<div id="photo-link" class="col-md-7 col-md-offset-1">
+<div id="photo-link">
 	<!-- Start of Photo DIV (column) -->
-	<div id="imgHolder" data-spy="affix" data-offset-top="1" data-offset-bottom="550">
+	<div id="imgHolder">
 		<div class="btn-group">
 			<a class="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-eye-open"></i> Tutorial</a>
 			<a class="btn btn-info btn-sm" id="imgLink" target="_blank" data-toggle="tooltip" data-placement="top" title="Opens in a new window"  href="http://community.micropasts.org/category/crowdsourcing-support"><i class="glyphicon glyphicon-book"></i> Community Help</a>
@@ -213,6 +191,20 @@ task.
 		<!-- The container for the zoomer -->
 		<div id="imgContainer"></div>
 		<div id="taskImg"></div>
+		
+			<!-- Feedback items for the user -->
+	<p>
+		You are working now on task: <span id="task-id" class="label label-warning">#</span>
+	</p>
+	<p>
+		You have completed: <span id="done" class="label label-info"></span> tasks from <!-- Progress bar for the user -->
+		<span id="total" class="label label-inverse"></span>
+	</p>
+	<div class="progress progress-striped col-md-7">
+		<div id="progress" rel="tooltip" title="#" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+	</div>
+	<!-- End of feedback row -->
+		
 	</div><!-- End of Photo DIV (columnt) -->
 </div>
 
