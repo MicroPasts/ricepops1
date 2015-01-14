@@ -49,7 +49,7 @@
 			</div>
 			<div class="modal-body">
 				<p>
-					Thank you for contributing one task for the project.
+					Thank you for contributing one task to this kind of application on the site.
 					We are interested in knowing how you found out about us.
 				</p>
 				<p>
@@ -117,12 +117,12 @@
 		<img src="/static/img/loading.gif">Loading next task...
 	</div>
 	<div id="taskcompleted" class="alert alert-info" style="display:none;">
-		<strong>The task has been completed!</strong> Thanks a lot!
+		<strong>The task has been completed,</strong> thanks a lot!
 	</div>
 	<div id="finish" class="alert alert-success" style="display:none;">
 		<h2> Congratulations! </h2>
 		<p>
-			You have participated in <strong>all</strong> available tasks! Thank you for your interest and help.
+			You have participated in <strong>all</strong> available tasks. Thank you for your interest and help.
 		</p>
 		<br/>
 		<img src="https://crowdfunded.micropasts.org/assets/logo-head.png" width="200" height="200"/>
@@ -150,15 +150,11 @@ task.
 <div class="row skeleton">
 	<h1 id="start"> Please transcribe the data table(s) you see in this image </h1>
 
-
-
 	<div id="step1">
 		<h5>First, please create a blank table by typing in the
-		number of columns you see (if you wish, you can add an extra
-		column to this number in which to input for
-		your own comments).<h5><span class="label label-info"><i
-			class="icon icon-bullhorn"></i> Note:</span> type 0 if there
-		is no table in the loaded image:
+		number of columns you see in the image below. We suggest that you add an extra
+		column to the observed total number of columns so that you can use it for your own comments.</h5>
+		<span class="label label-info"><i class="icon icon-bullhorn"></i>Note:</span> Please type 0 if you do not see any table in the loaded image:
 		<input id="nColumns">
 		</input>
 		<button id="btnNcolumns" class="btn btn-submit">
@@ -174,12 +170,11 @@ task.
 	</div>
 
 </div>
-<!-- End of Question and Submission DIV (column) -->
+<!-- End of Question and Submission div -->
 
-<!-- The column holding the open layers div -->
-
+<!-- Open Layers div -->
 <div id="photo-link">
-	<!-- Start of Photo DIV (column) -->
+	<!-- Photo div -->
 	<div id="imgHolder">
 		<div class="btn-group">
 			<a class="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-eye-open"></i> Tutorial</a>
@@ -188,26 +183,22 @@ task.
 			<a id="flickr" rel="tooltip" target="_blank" data-toggle="tooltip" data-placement="top" title="Opens in a new window" href="" class="btn btn-sm btn-info"><i class="icon icon-flickr"></i> View on flickr</a>
 			<a id="down" rel="tooltip" data-toggle="tooltip" data-placement="top" title="Only works for compliant browsers" download="" href="" class="btn btn-sm btn-info" ><i class="glyphicon glyphicon-download"></i> Download</a>
 		</div>
-		<!-- The container for the zoomer -->
+		<!-- Container for zoomer -->
 		<div id="imgContainer"></div>
 		<div id="taskImg"></div>
-		
-			<!-- Feedback items for the user -->
-	<p>
-		You are working now on task: <span id="task-id" class="label label-warning">#</span>
-	</p>
-	<p>
-		You have completed: <span id="done" class="label label-info"></span> tasks from <!-- Progress bar for the user -->
-		<span id="total" class="label label-inverse"></span>
-	</p>
-	<div class="progress progress-striped col-md-7">
-		<div id="progress" rel="tooltip" title="#" class="progress-bar" role="progressbar" style="width: 0%;"></div>
-	</div>
-	<!-- End of feedback row -->
-		
+		<!-- Feedback for user -->
+		<p>
+			You are working now on task: <span id="task-id" class="label label-warning">#</span>
+		</p>
+		<p>
+			You have completed: <span id="done" class="label label-info"></span> tasks from <!-- Progress bar for the user -->
+			<span id="total" class="label label-inverse"></span>
+		</p>
+		<div class="progress progress-striped col-md-7">
+			<div id="progress" rel="tooltip" title="#" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+		</div><!-- End of feedback row -->
 	</div><!-- End of Photo DIV (columnt) -->
 </div>
-
 </div><!-- End of Skeleton Row -->
 
 <!-- Modal start -->
@@ -258,7 +249,6 @@ task.
 					tables on the same page, then skip a line and
 					continue transcribing each table.
 				</p>
-
 				<p>
 					<strong>Note:</strong> If you find it easier, you can transcribe into
 					an offline spreadsheet and then copy-and-paste
@@ -268,11 +258,8 @@ task.
 					contributors complete this task before you do and
 					thereby make your efforts unnecessary!
 				</p>
-
 			</div>
-
 			<!-- End of stepped modal body -->
-
 			<!-- Modal footer -->
 			<div class="modal-footer">
 				<a id="prevBtn" href="#" onclick="showStep('prev')" class="btn btn-default">Previous</a>
@@ -300,7 +287,7 @@ task.
 			$("#prevBtn").show();
 		}
 
-		if (step == 3) {
+		if (step == 2) {
 			$("#nextBtn").hide();
 			$("#startContrib").show();
 		}
@@ -311,16 +298,16 @@ task.
 	$("#modal").modal('show'); 
 </script>
 
-<!-- The modernizer script -->
-
+<!-- Modernizer -->
 <script>
-	// Quick fix for IE8
+	// fix for IE8
 	Modernizr.load({
 		test : window.JSON,
 		nope : '/static/js/vendor/json2.min.js'
 	}); 
 </script>
-<!-- The main pybossa functions -->
+
+<!-- Main Pybossa functions -->
 <script>
 	function loadUserProgress() {
 		pybossa.userProgress('ricepops1').done(function(data) {
@@ -351,86 +338,6 @@ task.
 </script>
 
 <script>
-	var geocoder;
-	var map;
-	var marker;
-
-	function initialize() {
-		//MAP
-		var latlng = new google.maps.LatLng(54, -2);
-		var options = {
-			zoom : 4,
-			center : latlng,
-			mapTypeId : google.maps.MapTypeId.TERRAIN
-		};
-
-		map = new google.maps.Map(document.getElementById("map"), options);
-
-		//GEOCODER
-		geocoder = new google.maps.Geocoder();
-
-		marker = new google.maps.Marker({
-			map : map,
-			draggable : true
-		});
-
-	}
-
-
-	$(document).ready(function() {
-
-		initialize();
-
-		$(function() {
-			$("#toSearch").autocomplete({
-				//This bit uses the geocoder to fetch address values
-				source : function(request, response) {
-					geocoder.geocode({
-						'address' : request.term
-					}, function(results, status) {
-						response($.map(results, function(item) {
-							return {
-								label : item.formatted_address,
-								value : item.formatted_address,
-								latitude : item.geometry.location.lat(),
-								longitude : item.geometry.location.lng()
-							}
-						}));
-					})
-				},
-				//This bit is executed upon selection of an address
-				select : function(event, ui) {
-					$("#lat").val(ui.item.latitude);
-					$("#lon").val(ui.item.longitude);
-					var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
-					console.log('Latitude: ' + ui.item.latitude);
-					console.log('Longitude: ' + ui.item.longitude);
-					marker.setPosition(location);
-					map.setCenter(location);
-				}
-			});
-		});
-
-		//Add listener to marker for reverse geocoding
-		google.maps.event.addListener(marker, 'drag', function() {
-			geocoder.geocode({
-				'latLng' : marker.getPosition()
-			}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					if (results[0]) {
-						$('#toSearch').val(results[0].formatted_address);
-						$('#lat').val(marker.getPosition().lat());
-						$('#lon').val(marker.getPosition().lng());
-						console.log('Longitude: ' + marker.getPosition().lng());
-						console.log('Latitude: ' + marker.getPosition().lat());
-					}
-				}
-			});
-		});
-
-	}); 
-</script>
-<script>
 	pybossa.taskLoaded(function(task, deferred) {
 		if (!$.isEmptyObject(task)) {
 			var img = $('<img />');
@@ -439,8 +346,6 @@ task.
 			div_map.css("height", "390px");
 			div_map.css("width", "600px");
 			div_map.css("background", "#000");
-
-			var copyright = "&copy; <a href='" + task.info.link + "'>British Museum</a>";
 
 			var extent = new OpenLayers.Bounds();
 			extent.extend(new OpenLayers.LonLat(1.758939, 58.672231).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection('EPSG:900913')));
@@ -460,9 +365,6 @@ task.
 				//interactions: ol.interaction.defaults().extend([task.select, task.modify]),
 				layers : [new ol.layer.Image({
 					source : new ol.source.ImageStatic({
-						attributions : [new ol.Attribution({
-							html : copyright
-						})],
 						url : task.info.url_b,
 						imageSize : [1024, 720],
 						projection : task.pixelProjection,
