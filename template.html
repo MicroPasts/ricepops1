@@ -183,8 +183,7 @@ task.
 		<div class="btn-group">
 			<a class="btn btn-info btn-sm" href="#" data-toggle="modal" title="Opens in a new window" data-target="#myModal"><i class="glyphicon glyphicon-eye-open"></i> Tutorial</a>
 			<a class="btn btn-info btn-sm" rel="tooltip" target="_blank" data-toggle="tooltip" data-placement="top" title="Opens in a new window"  href="http://community.micropasts.org/category/crowdsourcing-support"><i class="glyphicon glyphicon-book"></i> Community Help</a>
-			<a id="flickr" rel="tooltip" target="_blank" data-toggle="tooltip" data-placement="top" title="Opens in a new window" href="" class="btn btn-sm btn-info"><i class="icon icon-flickr"></i> View on flickr</a>
-			<a id="down" rel="tooltip" data-toggle="tooltip" data-placement="top" title="Only works for compliant browsers" download="" href="" class="btn btn-sm btn-info" ><i class="glyphicon glyphicon-download"></i> Download</a>
+			<a id="flickr" rel="tooltip" target="_blank" data-toggle="tooltip" data-placement="top" title="Opens in a new window" href="" class="btn btn-sm btn-info"><i class="icon icon-flickr"></i> View on Flickr</a>
 		</div>
 		<!-- Container for zoomer -->
 		<div id="imgContainer"></div>
@@ -415,8 +414,6 @@ task.
 			$("#viewport_" + task.id).show();
 			$("#nColumns").val("");
 			$("a#flickr").attr("href", task.info.link + '/sizes/k/');
-			$("a#down").attr("download", task.id);
-			$("a#down").attr("href", task.info.url_b);
 			$(".fancybox").fancybox();
 			$('#imgLink').tooltip();
 			$("#question").html(task.info.question);
