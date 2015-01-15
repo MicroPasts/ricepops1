@@ -26,46 +26,6 @@ try:
 except:
     print "You need to create a config.py file (see config.py.template)"
 
-
-def get_flickr_photos(size="big"):
-    """
-    Gets public photos from Flickr feeds
-    :arg string size: Size of the image from Flickr feed.
-    :returns: A list of photos.
-    :rtype: list
-    """
-    # Get the ID of the photos and load it in the output var
-    # add the 'ids': '25053835@N03' to the values dict if you want to
-    # specify a Flickr Person ID
-    print('Contacting Flickr for photos')
-    url = "https://api.flickr.com/services/feeds/photos_public.gne"
-    values = {'nojsoncallback': 1,
-              'format': "json"}
-
-    query = url + "?" + urllib.urlencode(values)
-    urlobj = urllib2.urlopen(query)
-    data = urlobj.read()
-    urlobj.close()
-    # The returned JSON object by Flickr is not correctly escaped,
-    # so we have to fix it see
-    # http://goo.gl/A9VNo
-    regex = re.compile(r'\\(?![/u"])')
-    fixed = regex.sub(r"\\\\", data)
-    output = json.loads(fixed)
-    print('Data retrieved from Flickr')
-
-    # For each photo ID create its direct URL according to its size:
-    # big, medium, small (or thumbnail) + Flickr page hosting the photo
-    photos = []
-    for idx, photo in enumerate(output['items']):
-        print 'Retrieved photo: %s' % idx
-        imgUrl_m = photo["media"]["m"]
-        imgUrl_o = string.replace(photo["media"]["m"], "_m.jpg", "_o.jpg")
-        photos.append({'link': photo["link"], 'url_m':  imgUrl_m,
-                       'url_o': imgUrl_o})
-    return photos
-
-
 def get_flickr_set_photos(set_id):
     """Get public photos from a Flickr set_id and return a list."""
     url = 'https://api.flickr.com/services/rest/'
@@ -74,6 +34,7 @@ def get_flickr_set_photos(set_id):
         method='flickr.photosets.getPhotos',
         api_key=config.flickr_api_key,
         photoset_id=set_id,
+        extras='original_format',
         format='json',
         page=page,
         nojsoncallback=1)
@@ -97,11 +58,14 @@ def get_flickr_set_photos(set_id):
                 direct_link = "https://farm%s.staticflickr.com/%s/%s_%s" % (
                     photo['farm'], photo['server'],
                     photo['id'], photo['secret'])
+                original_link = "https://farm%s.staticflickr.com/%s/%s_%s" % (
+                    photo['farm'], photo['server'],
+                    photo['id'], photo['originalsecret'])
                 link = 'https://www.flickr.com/photos/%s/%s' % (
                     owner_name, photo['id'])
                 tmp = dict(url_m=direct_link + "_m.jpg",
-                           url_o=direct_link + "_o.jpg",
-                           link=link)
+                           url_o=original_link + "_o.jpg",
+                           link=link + "/sizes/l/")
                 photos.append(tmp)
             payload['page'] += 1
             res = requests.get(url, params=payload)
