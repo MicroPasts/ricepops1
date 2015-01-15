@@ -60,9 +60,9 @@ def get_flickr_photos(size="big"):
     for idx, photo in enumerate(output['items']):
         print 'Retrieved photo: %s' % idx
         imgUrl_m = photo["media"]["m"]
-        imgUrl_b = string.replace(photo["media"]["m"], "_m.jpg", "_b.jpg")
+        imgUrl_o = string.replace(photo["media"]["m"], "_m.jpg", "_o.jpg")
         photos.append({'link': photo["link"], 'url_m':  imgUrl_m,
-                       'url_b': imgUrl_b})
+                       'url_o': imgUrl_o})
     return photos
 
 
@@ -100,7 +100,7 @@ def get_flickr_set_photos(set_id):
                 link = 'https://www.flickr.com/photos/%s/%s' % (
                     owner_name, photo['id'])
                 tmp = dict(url_m=direct_link + "_m.jpg",
-                           url_b=direct_link + "_b.jpg",
+                           url_o=direct_link + "_o.jpg",
                            link=link)
                 photos.append(tmp)
             payload['page'] += 1
