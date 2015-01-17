@@ -175,7 +175,6 @@ task.
 
 </div>
 
-
 <!-- Open Layers div -->
 <div id="photo-link">
 	<!-- Photo div -->
@@ -230,35 +229,76 @@ task.
 			</div>
 			<div id="1" class="modal-body" style="display:none">
 				<p>
-					Please do not translate anything
-					(e.g. don't translate Dutch into English), just
-					transcribe it,
-					and retain the case of the word as it was originally
-					written. When the table is first loaded, you will be prompted to define the correct number of
-					total columns in the loaded table, so please check this
-					carefully. We suggest that you add an extra column to
-					the total number of observed columns and use it
-					for passing on your own
-					comments (e.g. if the observable table
-					has 4 columns, stipulate 5 columns and use the
-					last one for your own remarks). Please transcribe any table title or caption
-					into either the top or bottom row of your spreasheet, after you have entered the table, but otherwise
-					please ignore any further extraneous text on the
-					scanned page (e.g. page numbers). The number of rows will expand as you type. If
-					a word looks fuzzy, do you best to identify it
-					and make a comment in your extra column to note
-					the problem. If there happen to be two or more
-					tables on the same page, then skip a line and
-					continue transcribing each table.
+					Some further bits of guidance as you transcribe:
+					<ul>
+						<li>
+							When the table is first loaded, you will be prompted to define the correct number of total columns in the loaded table, so please check this carefully. We suggest that you add an extra column to the total number of observed columns and use it
+							for passing on your own
+							comments (e.g. if the observable table
+							has 4 columns, stipulate 5 columns and use the
+							last one for your own remarks).
+						</li>
+						<li>
+							Please enter all the text headings, captions and numbers that you see associated with the table.
+							You can transcribe the table title or caption
+							into either the top or bottom row of your spreasheet, after you have entered the table. The only
+							items that you do not need to transcribe are book page numbers
+							or paragraphs of extra text that happen to be part of the scanned page but are not directly related to the table.
+						</li>
+						<li>
+							The number of rows will expand as you type. Please do not worry if you leave a blank final row.
+						</li>
+						<li>
+							Sometimes inputs into a particular cell of the table can get complicated.
+							A good example is the adjacent image in which 'Regentschap', 'Regency',
+							a brace symbol and 'PANDEGLANG' are all lumped together. In such situations,
+							we would prefer this entered in a single ceel, with the words separated by a "[;]",
+							so in this case: "Regentschap[;]Regency[;]PANDEGLANG". Please igore curly braces and
+							any similarly complex and largely ornamental notation unless you feel it is crucial for the meaning.
+						</li>
+					</ul>
 				</p>
+				<img src="http://micropasts-ricepops.s3.amazonaws.com/rowmessexample.png" class="img-polaroid"
+				alt="An example of a complicated row" width="300" height="130"/>
+			</div>
+
+			<div id="2" class="modal-body" style="display:none">
 				<p>
-					<strong>Note:</strong> If you find it easier, you can transcribe into
-					an offline spreadsheet and then copy-and-paste
-					the results into the online table in one go. However, bear in mind that
-					a delay in submitting the online table
-					might then mean that other
-					contributors complete this task before you do and
-					thereby make your efforts unnecessary!
+					Some further bits of guidance (continued):
+					<ul>
+						<li>
+							If you have a heading or other piece text which seems to span several columns,
+							place the text in the first column and leave the others blank.
+							For example in the image to the left, it is probably best to use three columns, but
+							for the first row, place "Totaal - Total" in the first column of the first row, leaving the other two columns in this row blank.
+						</li>
+						<li>
+							If a word is hard to decipher, do you best to identify it
+							and make a comment in your extra column to note
+							the problem.
+						</li>
+						<li>
+							Please do not translate anything
+							(e.g. don't translate Dutch into English), just
+							transcribe it, and retain the case of the word as it was originally written.
+						</li>
+						<li>
+							If two or more
+							tables are present in the same image, then skip a line and
+							continue transcribing the next table.
+						</li>
+						<li>
+							If you find it easier, you can transcribe into
+							an offline spreadsheet and then copy-and-paste
+							the results into the online table in one go. However, bear in mind that
+							a delay in submitting the online table
+							might then mean that other
+							contributors complete this task before you do and
+							thereby make your efforts unnecessary!
+						</li>
+					</ul>
+					<img src="http://micropasts-ricepops.s3.amazonaws.com/colspanexample.png" class="img-polaroid"
+					alt="An example of an entry spanning several posisble columns" width="230" height="121"/>
 				</p>
 			</div>
 			<!-- End of stepped modal body -->
@@ -291,7 +331,7 @@ task.
 			$("#prevBtn").show();
 		}
 
-		if (step == 1) {
+		if (step == 2) {
 			$("#nextBtn").hide();
 			$("#startContrib").show();
 		}
