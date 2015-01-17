@@ -157,7 +157,7 @@ task.
 		<h5>First create a blank table by entering the
 		number of columns you see in the image below.
 		<br>
-		Please include both text and number columns. If in doubt, 
+		Include both text and number data in your column estimate. If in doubt,
 		add extra columns to your estimate (as we can remove these later).
 		<br>
 		Also add an extra final column to your estimate for your own comments.</h5>
@@ -460,6 +460,7 @@ task.
 			$("#step2").hide();
 			$("#viewport_" + task.id).show();
 			$("#nColumns").val("");
+			$("a#raw").attr("href", task.info.url_o);
 			$("a#flickr").attr("href", task.info.link);
 			$("a#down").attr("download", task.id);
 			$("a#down").attr("href", task.info.url_o);
