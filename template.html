@@ -410,14 +410,12 @@ task.
 				extent : [0, 0, 1024, 720]
 			});
 
-			imsize = new getImageSize(task.info.url_o.)
-
 			task.map_img = new ol.Map({
 				//interactions: ol.interaction.defaults().extend([task.select, task.modify]),
 				layers : [new ol.layer.Image({
 					source : new ol.source.ImageStatic({
 						url : task.info.url_o,
-						imageSize : imsize,
+						imageSize : [1024, 720],
 						projection : task.pixelProjection,
 						imageExtent : task.pixelProjection.getExtent()
 					})
