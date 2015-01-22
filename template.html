@@ -20,17 +20,6 @@
 	#map_canvas img {
 		max-width: none;
 	}
-	.affix {
-		width: inherit;
-		height: 0px;
-	}
-
-	.affix-bottom {
-		top: auto !important;
-		position: fixed;
-		bottom: 240px;
-	}
-
 	#imgContainer {
 		height: 390px;
 		width: 600px;
@@ -191,7 +180,7 @@ task.
 <!-- Open Layers div -->
 <div id="photo-link">
 	<!-- Photo div -->
-	<div id="imgHolder" data-spy="affix" data-offset-top="1">
+	<div id="imgHolder">
 		<div class="btn-group">
 			<a class="btn btn-info btn-sm" href="#" data-toggle="modal" title="Opens in a new window" data-target="#myModal"><i class="glyphicon glyphicon-eye-open"></i> Tutorial</a>
 			<a class="btn btn-info btn-sm" rel="tooltip" target="_blank" data-toggle="tooltip" data-placement="top" title="Opens in a new window"  href="http://community.micropasts.org/category/crowd-sourcing-support"><i class="glyphicon glyphicon-book"></i> Community Help</a>
@@ -534,6 +523,4 @@ task.
 		$(".skeleton").hide();
 		$("#oldbrowser").show();
 	}
-	$(window).off('.affix');
-	$("#imgHolder").removeClass("affix affix-top affix-bottom").removeData("bs.affix"); 
 </script>
