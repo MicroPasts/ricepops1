@@ -489,6 +489,7 @@ task.
 					// No table, so load next page
 					else {
 						pybossa.saveTask(task.id, "noTable").done(function(data) {
+							$("#img_" + task.id).hide();
 							deferred.resolve();
 							$("#success").fadeIn();
 							setTimeout(function() {
@@ -500,6 +501,7 @@ task.
 					var handsontable = $("#data-table").data('handsontable');
 					var answer = handsontable.getData();
 					pybossa.saveTask(task.id, answer).done(function(data) {
+						$("#img_" + task.id).hide();
 						deferred.resolve();
 						$("#success").fadeIn();
 						setTimeout(function() {
