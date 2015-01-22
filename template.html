@@ -488,7 +488,6 @@ task.
 					}
 					// No table, so load next page
 					else {
-						$("#viewport_" + task.id).hide();
 						pybossa.saveTask(task.id, "noTable").done(function(data) {
 							deferred.resolve();
 							$("#success").fadeIn();
@@ -500,7 +499,6 @@ task.
 				} else {
 					var handsontable = $("#data-table").data('handsontable');
 					var answer = handsontable.getData();
-					$("#viewport_" + task.id).hide();
 					pybossa.saveTask(task.id, answer).done(function(data) {
 						deferred.resolve();
 						$("#success").fadeIn();
