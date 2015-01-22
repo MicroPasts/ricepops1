@@ -20,6 +20,17 @@
 	#map_canvas img {
 		max-width: none;
 	}
+	.affix {
+		width: inherit;
+		height: 0px;
+	}
+
+	.affix-bottom {
+		top: auto !important;
+		position: fixed;
+		bottom: 240px;
+	}
+
 	#imgContainer {
 		height: 390px;
 		width: 600px;
@@ -166,9 +177,9 @@ task.
 	</div>
 	<!-- End of Question and Submission div -->
 	<div id="step2">
-		<h5>Transcribe the table shown in the scanned image into the empty cells below 
-			<br>
-			(and choose 'Submit transcription' when finished)</h5>
+		<h5>Transcribe the table shown in the scanned image into the empty cells below
+		<br>
+		(and choose 'Submit transcription' when finished)</h5>
 		<div class="handsontable" id="data-table"></div>
 		<button class="btn btn-submit" style="margin-top:5px;">
 			Submit transcription
@@ -273,8 +284,8 @@ task.
 						<li>
 							If you have a heading or another piece of text which seems to span several columns,
 							place the text in the first column and leave the others blank.
-							For example, in the image below, three columns have been used, 
-							(with an extra where the blue outline is left blank for contributor comments). 
+							For example, in the image below, three columns have been used,
+							(with an extra where the blue outline is left blank for contributor comments).
 							In the first row, "Totaal - Total" has been placed the first cell and
 							the other two cells have been left blank.
 						</li>
@@ -291,9 +302,9 @@ task.
 						<li>
 							If two or more
 							tables are present in the same image, then skip a line and
-							continue transcribing the next table. If only part of a table is visible, 
-							move the image around to check this is definitely the case, but then input 
-							the data in wholly visible columns and rows only (some big tables are split and will recombined them later). 
+							continue transcribing the next table. If only part of a table is visible,
+							move the image around to check this is definitely the case, but then input
+							the data in wholly visible columns and rows only (some big tables are split and will recombined them later).
 						</li>
 						<li>
 							If you find it easier, you can transcribe into
